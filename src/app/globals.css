@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfcfa;
+  --foreground: #2b2621;
+
+  --color-forest: #1f3d2e;
+  --color-forest-dark: #142a20;
+  --color-wood: #a9703f;
+  --color-wood-dark: #7c4f2a;
+  --color-beige: #f2ead9;
+  --color-beige-dark: #e6d9bd;
+  --color-charcoal: #2b2621;
+  --color-charcoal-light: #4a433c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-forest: var(--color-forest);
+  --color-forest-dark: var(--color-forest-dark);
+  --color-wood: var(--color-wood);
+  --color-wood-dark: var(--color-wood-dark);
+  --color-beige: var(--color-beige);
+  --color-beige-dark: var(--color-beige-dark);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-light: var(--color-charcoal-light);
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-wood-dark);
+}
+
+.wood-texture-hero {
+  background:
+    linear-gradient(180deg, rgba(20, 42, 32, 0.78) 0%, rgba(20, 42, 32, 0.92) 100%),
+    repeating-linear-gradient(100deg, #6b4429 0px, #7c4f2a 40px, #6b4429 80px, #5a3a22 120px);
+}
