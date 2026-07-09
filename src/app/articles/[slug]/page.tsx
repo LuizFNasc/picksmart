@@ -49,23 +49,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </div>
       )}
 
-      <div className="mt-8 h-72 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] flex items-center justify-center">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--color-wood-dark)" strokeWidth="1.2">
-          <path d="M3 7l9-4 9 4-9 4-9-4z" strokeLinejoin="round" />
-          <path d="M3 7v10l9 4 9-4V7" strokeLinejoin="round" />
-        </svg>
-      </div>
+      <div
+        className="mt-8 h-72 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
+        style={{ backgroundImage: `url(${article.image})` }}
+      />
 
-      <div className="mt-8 prose prose-neutral max-w-none text-[var(--color-charcoal)] leading-relaxed">
-        <p>
-          This is placeholder content for the full article. Our editorial
-          team is preparing an in-depth piece that will walk through the
-          research, comparisons, and practical advice summarized above.
-        </p>
-        <p>
-          Check back soon, or subscribe to our newsletter to be notified when
-          this article, and others like it, go live.
-        </p>
+      <div className="mt-8 space-y-5 max-w-none text-[var(--color-charcoal)] leading-relaxed">
+        {article.content.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
       </div>
 
       <div className="mt-10 pt-6 border-t border-[var(--color-beige-dark)]">
