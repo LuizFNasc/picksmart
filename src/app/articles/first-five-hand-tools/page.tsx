@@ -140,7 +140,7 @@ export default function FirstFiveHandTools() {
 
       <div
         className="mt-6 h-72 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/articles/first-five-hand-tools.jpg)" }}
+        style={{ backgroundImage: "url(/images/articles/hero.jpeg)" }}
         role="img"
         aria-label="Five essential hand tools for beginner woodworkers arranged on a workbench"
       />
@@ -202,6 +202,13 @@ export default function FirstFiveHandTools() {
           reference you can come back to once you're standing in the tool
           aisle.
         </p>
+
+        <div
+          className="h-64 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
+          style={{ backgroundImage: "url(/images/articles/support_image1.jpeg)" }}
+          role="img"
+          aria-label="Beginner hand tools laid out and ready for use on a workbench"
+        />
 
         <div className="overflow-x-auto rounded-lg border border-[var(--color-beige-dark)]">
           <table className="w-full text-sm border-collapse">
@@ -350,6 +357,13 @@ export default function FirstFiveHandTools() {
           </p>
         </Callout>
 
+        <div
+          className="h-64 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
+          style={{ backgroundImage: "url(/images/articles/support_image2.jpeg)" }}
+          role="img"
+          aria-label="Block plane smoothing the end grain of a wood board"
+        />
+
         <p>
           <strong>Keeping it in shape:</strong> Learn a basic sharpening
           method, sandpaper on glass works fine to start, and wipe a light
@@ -469,6 +483,13 @@ export default function FirstFiveHandTools() {
             more, and let the next tool earn its place in your shop.
           </p>
         </Callout>
+
+        <div
+          className="h-64 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
+          style={{ backgroundImage: "url(/images/articles/support_image3.jpeg)" }}
+          role="img"
+          aria-label="A small, well-maintained beginner hand tool kit ready for the next project"
+        />
 
         <div className="rounded-lg border border-[var(--color-beige-dark)] bg-[var(--color-beige)] p-5 text-sm text-[var(--color-charcoal-light)]">
           <p className="font-semibold text-[var(--color-charcoal)] mb-2">Further reading</p>
