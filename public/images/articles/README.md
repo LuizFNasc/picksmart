@@ -27,7 +27,7 @@ just falls back to a plain color background — nothing breaks.
 
 ## Series: "The First Five Hand Tools Every Beginner Should Own"
 
-- first-five-hand-tools-hero.jpg — tape measure, combination square, block plane, chisels, and hand saw arranged on a workbench, shot from above
+- first-five-hand-tools.jpg — already uploaded; used as the featured/hero image
 - hand-tools-measuring.jpg — close-up of a tape measure and combination square marking a board
 - block-plane-shavings.jpg — block plane smoothing end grain with visible wood shavings
 

@@ -81,7 +81,7 @@ export default function FirstFiveHandTools() {
           Alt text: "Five essential hand tools for beginner woodworkers arranged on a workbench" */}
       <div
         className="mt-6 h-72 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/articles/first-five-hand-tools-hero.jpg)" }}
+        style={{ backgroundImage: "url(/images/articles/first-five-hand-tools.jpg)" }}
         role="img"
         aria-label="Five essential hand tools for beginner woodworkers arranged on a workbench"
       />
