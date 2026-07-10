@@ -25,4 +25,10 @@ just falls back to a plain color background — nothing breaks.
 - woodworking-starter-tools.jpg — flat lay of basic beginner hand tools (square, chisels, saw, tape measure)
 - woodworking-first-projects.jpg — finished simple cutting board and small stool on a workbench
 
+## Series: "The First Five Hand Tools Every Beginner Should Own"
+
+- first-five-hand-tools-hero.jpg — tape measure, combination square, block plane, chisels, and hand saw arranged on a workbench, shot from above
+- hand-tools-measuring.jpg — close-up of a tape measure and combination square marking a board
+- block-plane-shavings.jpg — block plane smoothing end grain with visible wood shavings
+
 Recommended size: at least 1200x800px, landscape orientation.

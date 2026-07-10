@@ -2,10 +2,18 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { articles, featuredReview } from "@/lib/data";
 
+// Slugs with a dedicated, hand-written page under src/app/articles/<slug>/page.tsx
+// (long-form flagship pieces) are excluded here so this dynamic route doesn't
+// generate a conflicting static path for them.
+const DEDICATED_PAGES = new Set([
+  "woodworking-for-beginners-guide",
+  "first-five-hand-tools",
+]);
+
 const all = [
   ...articles,
   { ...featuredReview, readTime: "10 min read" },
-];
+].filter((a) => !DEDICATED_PAGES.has(a.slug));
 
 export function generateStaticParams() {
   return all.map((a) => ({ slug: a.slug }));
