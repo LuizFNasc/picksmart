@@ -50,22 +50,13 @@ const faqs = [
   },
 ];
 
-function SuggestedImage({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="not-prose flex items-start gap-3 rounded-md border border-dashed border-[var(--color-wood)] bg-[var(--color-beige)]/50 px-4 py-3 text-sm text-[var(--color-charcoal-light)]">
-      <span className="shrink-0 font-semibold text-[var(--color-wood-dark)]">[Suggested Image]</span>
-      <span>{children}</span>
-    </div>
-  );
-}
-
 function Callout({
   label,
   tone,
   children,
 }: {
   label: string;
-  tone: "tip" | "mistake" | "checklist" | "fact";
+  tone: "tip" | "mistake" | "checklist" | "fact" | "reality" | "beforeBuy" | "bench";
   children: React.ReactNode;
 }) {
   const toneStyles: Record<typeof tone, string> = {
@@ -73,6 +64,9 @@ function Callout({
     mistake: "border-[var(--color-wood)] bg-[var(--color-wood)]/10",
     checklist: "border-[var(--color-beige-dark)] bg-[var(--color-beige)]",
     fact: "border-[var(--color-charcoal-light)] bg-white",
+    reality: "border-[var(--color-wood-dark)] bg-white",
+    beforeBuy: "border-[var(--color-forest-dark)] bg-[var(--color-beige)]",
+    bench: "border-[var(--color-charcoal)] bg-white",
   };
   return (
     <div className={`rounded-lg border-l-4 p-5 ${toneStyles[tone]}`}>
@@ -81,6 +75,44 @@ function Callout({
     </div>
   );
 }
+
+const comparisonTable = [
+  {
+    tool: "Tape Measure",
+    price: "$10 – $25",
+    difficulty: "Beginner",
+    essentialFor: "Accurate layout and cutting",
+    priority: "Buy first",
+  },
+  {
+    tool: "Combination Square",
+    price: "$20 – $80",
+    difficulty: "Beginner",
+    essentialFor: "Square edges and consistent marking",
+    priority: "Buy first",
+  },
+  {
+    tool: "Block Plane",
+    price: "$30 – $100+",
+    difficulty: "Beginner–Intermediate",
+    essentialFor: "Smoothing edges and end grain",
+    priority: "Buy second",
+  },
+  {
+    tool: "Bench Chisels",
+    price: "$30 – $70",
+    difficulty: "Intermediate",
+    essentialFor: "Joinery and detail work",
+    priority: "Buy third",
+  },
+  {
+    tool: "Hand Saw",
+    price: "$25 – $60",
+    difficulty: "Beginner–Intermediate",
+    essentialFor: "Clean, controlled cuts",
+    priority: "Buy third",
+  },
+];
 
 export default function FirstFiveHandTools() {
   const faqJsonLd = {
@@ -156,11 +188,48 @@ export default function FirstFiveHandTools() {
           your later power-tool work more accurate, too.
         </p>
 
-        <SuggestedImage>
-          A tidy flat-lay of all five tools, tape measure, combination
-          square, block plane, chisels, and hand saw, arranged on a wood
-          workbench, shot from directly above.
-        </SuggestedImage>
+        <Callout label="Workshop Reality" tone="reality">
+          <p>
+            None of these five tools will feel effortless the first time you
+            pick them up. That's normal, not a sign you're doing something
+            wrong. Comfort comes from hours in hand, not from buying a better
+            version of the tool.
+          </p>
+        </Callout>
+
+        <p>
+          Before we go tool by tool, here's the short version, a quick
+          reference you can come back to once you're standing in the tool
+          aisle.
+        </p>
+
+        <div className="overflow-x-auto rounded-lg border border-[var(--color-beige-dark)]">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-[var(--color-forest)] text-white">
+                <th className="text-left font-serif font-semibold px-4 py-3">Tool</th>
+                <th className="text-left font-serif font-semibold px-4 py-3">Typical Beginner Price</th>
+                <th className="text-left font-serif font-semibold px-4 py-3">Difficulty Level</th>
+                <th className="text-left font-serif font-semibold px-4 py-3">Essential For</th>
+                <th className="text-left font-serif font-semibold px-4 py-3">Purchase Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonTable.map((row, i) => (
+                <tr
+                  key={row.tool}
+                  className={i % 2 === 0 ? "bg-white" : "bg-[var(--color-beige)]"}
+                >
+                  <td className="px-4 py-3 font-semibold text-[var(--color-charcoal)] whitespace-nowrap">{row.tool}</td>
+                  <td className="px-4 py-3 text-[var(--color-charcoal-light)] whitespace-nowrap">{row.price}</td>
+                  <td className="px-4 py-3 text-[var(--color-charcoal-light)] whitespace-nowrap">{row.difficulty}</td>
+                  <td className="px-4 py-3 text-[var(--color-charcoal-light)]">{row.essentialFor}</td>
+                  <td className="px-4 py-3 text-[var(--color-charcoal-light)] whitespace-nowrap">{row.priority}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
           1. Tape Measure or Folding Rule
@@ -273,10 +342,13 @@ export default function FirstFiveHandTools() {
           </p>
         </Callout>
 
-        <SuggestedImage>
-          A close-up shot of a block plane mid-stroke across end grain, with
-          a curl of wood shaving visible.
-        </SuggestedImage>
+        <Callout label="Before You Buy" tone="beforeBuy">
+          <p>
+            A cheap plane with a good iron will outperform an expensive plane
+            with a dull one. If your budget is tight, spend it on sharpening
+            supplies before you spend it on the plane itself.
+          </p>
+        </Callout>
 
         <p>
           <strong>Keeping it in shape:</strong> Learn a basic sharpening
@@ -387,6 +459,16 @@ export default function FirstFiveHandTools() {
           These five tools are enough to build something real. What you do
           with them matters far more than what's in your tool bag.
         </p>
+
+        <Callout label="Editor's Bench" tone="bench">
+          <p>
+            Ask around any woodworking community and you'll hear the same
+            pattern: the woodworkers with the most refined skills usually
+            started with the smallest kits, not the largest. If there's one
+            habit worth adopting on day one, it's this: buy less, use it
+            more, and let the next tool earn its place in your shop.
+          </p>
+        </Callout>
 
         <div className="rounded-lg border border-[var(--color-beige-dark)] bg-[var(--color-beige)] p-5 text-sm text-[var(--color-charcoal-light)]">
           <p className="font-semibold text-[var(--color-charcoal)] mb-2">Further reading</p>
