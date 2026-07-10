@@ -50,6 +50,38 @@ const faqs = [
   },
 ];
 
+function SuggestedImage({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="not-prose flex items-start gap-3 rounded-md border border-dashed border-[var(--color-wood)] bg-[var(--color-beige)]/50 px-4 py-3 text-sm text-[var(--color-charcoal-light)]">
+      <span className="shrink-0 font-semibold text-[var(--color-wood-dark)]">[Suggested Image]</span>
+      <span>{children}</span>
+    </div>
+  );
+}
+
+function Callout({
+  label,
+  tone,
+  children,
+}: {
+  label: string;
+  tone: "tip" | "mistake" | "checklist" | "fact";
+  children: React.ReactNode;
+}) {
+  const toneStyles: Record<typeof tone, string> = {
+    tip: "border-[var(--color-forest)] bg-[var(--color-forest)]/5",
+    mistake: "border-[var(--color-wood)] bg-[var(--color-wood)]/10",
+    checklist: "border-[var(--color-beige-dark)] bg-[var(--color-beige)]",
+    fact: "border-[var(--color-charcoal-light)] bg-white",
+  };
+  return (
+    <div className={`rounded-lg border-l-4 p-5 ${toneStyles[tone]}`}>
+      <p className="font-serif font-bold text-[var(--color-forest)] mb-2">{label}</p>
+      <div className="text-[var(--color-charcoal)] leading-relaxed">{children}</div>
+    </div>
+  );
+}
+
 export default function FirstFiveHandTools() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -74,11 +106,6 @@ export default function FirstFiveHandTools() {
         The First Five Hand Tools Every Beginner Should Own
       </h1>
 
-      {/* Featured image
-          Suggested photo: five essential hand tools (tape measure, combination
-          square, block plane, chisels, hand saw) arranged neatly on a wood
-          workbench, shot from above.
-          Alt text: "Five essential hand tools for beginner woodworkers arranged on a workbench" */}
       <div
         className="mt-6 h-72 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
         style={{ backgroundImage: "url(/images/articles/first-five-hand-tools.jpg)" }}
@@ -88,337 +115,277 @@ export default function FirstFiveHandTools() {
 
       <div className="mt-8 space-y-5 text-[var(--color-charcoal)] leading-relaxed">
         <p>
-          One of the most common assumptions among people considering
-          woodworking is that they need a garage full of machinery before
-          they can start. They don&apos;t. As we covered in{" "}
+          Walk into any woodworking forum and you'll see the same question,
+          asked a dozen different ways: what tools do I actually need to get
+          started?
+        </p>
+        <p>
+          It's a fair question, and it's easy to overthink. In our{" "}
           <Link href="/articles/woodworking-for-beginners-guide" className="underline text-[var(--color-forest)]">
-            Woodworking for Beginners: The Complete 2026 Guide
+            complete beginner's guide
           </Link>
-          , plenty of accomplished woodworkers began with nothing more than a
-          handful of hand tools and a stable surface to work on. The real
-          question isn&apos;t how many tools you need to buy, it&apos;s
-          which few tools are actually worth buying first.
+          , we talked about how little space and money it really takes to
+          start woodworking. This time, we're getting specific.
         </p>
         <p>
-          This guide walks through five hand tools that consistently show up
-          on beginner recommendations from woodworking instructors and
-          longtime hobbyists alike: a tape measure or folding rule, a
-          combination square, a block plane, a small set of chisels, and a
-          hand saw. Together, they cover the core tasks nearly every project
-          requires, measuring, marking, smoothing, shaping, and cutting,
-          without requiring a single outlet.
+          You don't need a shop full of machines. You need five hand tools,
+          chosen well, and a little patience.
+        </p>
+
+        <Callout label="Did You Know?" tone="fact">
+          <p>
+            Woodworking predates written history. Long before power tools, or
+            even metal tools in many cultures, wood was shaped almost
+            entirely by hand. The five tools in this article represent
+            centuries of refinement, not a modern invention.
+          </p>
+        </Callout>
+
+        <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
+          Why Hand Tools First?
+        </h2>
+        <p>
+          Hand tools are affordable. They don't need a garage or an outlet.
+          And they teach you something a power tool can't: how wood actually
+          behaves.
+        </p>
+        <p>
+          When you push a hand plane across a board, you feel the grain
+          change direction. When you saw by hand, you learn what happens when
+          you rush a cut. That feedback sticks with you, and it tends to make
+          your later power-tool work more accurate, too.
+        </p>
+
+        <SuggestedImage>
+          A tidy flat-lay of all five tools, tape measure, combination
+          square, block plane, chisels, and hand saw, arranged on a wood
+          workbench, shot from directly above.
+        </SuggestedImage>
+
+        <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
+          1. Tape Measure or Folding Rule
+        </h2>
+        <p>
+          Every project starts with a measurement. Get this wrong, and
+          nothing downstream fits the way it should.
+        </p>
+        <p>
+          <strong>How it's used:</strong> Measuring stock length, marking cut
+          lines, checking finished dimensions against your plan.
+        </p>
+        <p>
+          <strong>What makes a good one:</strong> A 16- or 25-foot tape with
+          a wide, easy-to-read blade and clear fractions down to at least
+          1/16 inch. The slight wiggle in the end hook isn't a defect, it's
+          designed that way so your measurement stays accurate whether you're
+          pushing or pulling against an edge.
+        </p>
+        <p>
+          <strong>Price range:</strong> $10 to $25. Stanley and Empire are
+          both long-standing names you'll see on hardware store shelves in
+          this range.
+        </p>
+
+        <Callout label="Common Beginner Mistake" tone="mistake">
+          <p>
+            Switching tape measures mid-project. Manufacturing tolerances
+            vary slightly between brands, sometimes even between two tapes
+            from the same brand. Pick one tape and use it for the whole
+            build.
+          </p>
+        </Callout>
+
+        <p>
+          <strong>Keeping it in shape:</strong> Wipe the blade clean now and
+          then, and don't let it snap back hard over and over, that stresses
+          the internal spring. Beyond that, there's not much to maintain.
         </p>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
-          Why Start With Hand Tools
+          2. Combination Square
         </h2>
         <p>
-          Hand tools have a few practical advantages for someone new to
-          woodworking. They cost less individually than power tools, so you
-          can build a useful starter kit without a large upfront investment.
-          They also don&apos;t require dedicated shop space, dust collection,
-          or 240-volt wiring, a tape measure and a chisel work equally well
-          on a kitchen table or a workbench in a one-car garage.
+          If the tape measure tells you how long, the combination square
+          tells you how straight, and how square.
         </p>
         <p>
-          Perhaps more importantly, hand tools slow you down in a useful way.
-          Cutting a dovetail by hand or flattening a board with a plane
-          forces you to pay attention to grain direction and material
-          behavior in a way that a spinning blade can mask. Many
-          woodworking instructors consider this direct feedback part of what
-          makes hand tools such an effective way to build foundational
-          skill, even for people who plan to rely mostly on power tools
-          later on.
+          <strong>How it's used:</strong> Checking that edges meet at 90
+          degrees, marking lines parallel to an edge, setting consistent
+          depths. It does the job of a try square, a marking gauge, and a
+          depth gauge in one tool.
         </p>
-
-        {/* Supporting image
-            Suggested photo: close-up of a tape measure and combination square
-            resting on a marked board.
-            Alt text: "Tape measure and combination square used to mark a wood board" */}
-        <div
-          className="h-64 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/articles/hand-tools-measuring.jpg)" }}
-          role="img"
-          aria-label="Tape measure and combination square used to mark a wood board"
-        />
-
-        <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
-          1. A Quality Tape Measure or Folding Rule
-        </h2>
         <p>
-          Every project starts with measuring, and small inaccuracies here
-          compound quickly into parts that don&apos;t fit together. A
-          dedicated shop tape measure, kept in your tool bag rather than
-          borrowed for household tasks, is worth the modest cost.
+          <strong>What makes a good one:</strong> A machined head, not a
+          stamped one, and a blade that locks tight without shifting. A
+          12-inch blade covers most furniture-scale work.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          What to look for
-        </h3>
         <p>
-          A 16- or 25-foot tape covers nearly all furniture-scale work. Look
-          for a wide, easy-to-read blade with clearly marked fractions down
-          to at least 1/16 inch, and a hook at the end with a small amount of
-          play, this is intentional, designed to account for the hook&apos;s
-          thickness whether you&apos;re measuring by pushing or pulling
-          against an edge.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Realistic price and brands
-        </h3>
-        <p>
-          A solid tape measure typically runs $10 to $25. Stanley and Empire
-          are both long-established names in measuring tools and are
-          commonly found in this range at most hardware stores.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Common beginner mistakes
-        </h3>
-        <p>
-          The most frequent error isn&apos;t choosing a bad tape measure,
-          it&apos;s switching between two different tapes mid-project.
-          Manufacturing tolerances vary slightly between brands and even
-          between units, so measuring an entire project with the same tape
-          reduces the chance of small mismatches.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Maintenance
-        </h3>
-        <p>
-          Keep the blade clean and avoid letting it snap back hard
-          repeatedly, which stresses the internal spring over time. There&apos;s
-          little else to maintain.
+          <strong>Price range:</strong> $20 for a solid mid-range square, up
+          to $80 or more for precision-ground tools from a name like
+          Starrett, which has built its reputation on measuring accuracy
+          among machinists as much as woodworkers. Irwin makes reliable,
+          more affordable options too.
         </p>
 
-        <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
-          2. A Combination Square
-        </h2>
+        <Callout label="PickSmart Tip" tone="tip">
+          <p>
+            Before you trust a new square, check it. Draw a line against it,
+            flip the square over, and draw the line again from the same
+            edge. If the two lines match, it's square. If they don't, even a
+            small gap tells you the tool needs to go back.
+          </p>
+        </Callout>
+
         <p>
-          A combination square is one of the more versatile tools in any
-          shop. It checks that edges are square, marks lines parallel to an
-          edge, sets consistent depths, and can even function as a basic
-          depth or marking gauge, all from one tool.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          What to look for
-        </h3>
-        <p>
-          Accuracy is what separates a good combination square from a
-          frustrating one. Look for a square with a machined, not stamped,
-          head, and a blade that locks firmly without shifting once
-          tightened. A 12-inch blade is the most commonly recommended size
-          for general furniture work.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Realistic price and brands
-        </h3>
-        <p>
-          Reliable combination squares are available from roughly $20 for
-          solid mid-range options up to $80 or more for precision-ground
-          tools from manufacturers like Starrett, which has a long-standing
-          reputation for precision measuring tools among machinists and
-          woodworkers alike. Irwin also makes widely available combination
-          squares in the more affordable range.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Common beginner mistakes
-        </h3>
-        <p>
-          Assuming a square is accurate right out of the box is a common
-          mistake. It&apos;s worth checking any new square against a known
-          straight edge before relying on it, since even factory tools can
-          arrive slightly out of true.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Maintenance
-        </h3>
-        <p>
-          Wipe the blade down after use to prevent rust, especially in humid
-          shops, and avoid dropping it, a bent blade or knocked head is one
-          of the few things that can throw off its accuracy permanently.
+          <strong>Keeping it in shape:</strong> Wipe down after use to avoid
+          rust, and don't drop it. A knocked head is one of the few things
+          that throws off accuracy for good.
         </p>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
           3. A Sharp Block Plane
         </h2>
         <p>
-          A block plane is a small, typically one-handed plane used for
-          chamfering edges, smoothing end grain, and fine-tuning joints for
-          a snug fit. It&apos;s one of the more satisfying early tools to
-          learn, since a few passes can visibly clean up a rough-cut edge.
+          Small, one-handed, and surprisingly satisfying to use, the block
+          plane is where a lot of beginners fall in love with hand tools.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          What to look for
-        </h3>
         <p>
-          A low-angle block plane is generally more versatile for beginners
-          than a standard-angle version, since the lower cutting angle
-          handles end grain more cleanly. Look for a flat sole and an
-          adjustable mouth, which lets you control how thick a shaving the
-          plane takes.
+          <strong>How it's used:</strong> Chamfering edges, smoothing end
+          grain, and fine-tuning a joint that's just a hair too tight.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Realistic price and brands
-        </h3>
         <p>
-          Functional block planes start around $30 to $50, with premium
-          versions from specialty toolmakers running well over $100. Stanley
-          has produced block planes for well over a century and remains a
-          common entry point for beginners.
+          <strong>What makes a good one:</strong> A low-angle design, which
+          handles end grain more cleanly than a standard angle. Look for a
+          flat sole and an adjustable mouth, so you can control shaving
+          thickness.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Common beginner mistakes
-        </h3>
         <p>
-          Trying to use a plane straight out of the box without sharpening
-          the iron is probably the single most common frustration new
-          woodworkers report. Most planes, even good ones, don&apos;t arrive
-          sharp enough to perform well and need an initial sharpening before
-          their first real use.
-        </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Maintenance
-        </h3>
-        <p>
-          Learning basic sharpening, whether with sandpaper on glass, a
-          honing guide, or dedicated stones, is arguably as important as the
-          plane itself. A light coat of oil on the sole and iron helps
-          prevent rust between uses.
+          <strong>Price range:</strong> $30 to $50 for a functional plane,
+          well over $100 for premium versions. Stanley has made block planes
+          for more than a century, and it's still a common starting point.
         </p>
 
-        {/* Supporting image
-            Suggested photo: a woodworker's hand pushing a block plane across
-            the end grain of a board, with visible wood shavings.
-            Alt text: "Block plane smoothing the end grain of a wood board" */}
-        <div
-          className="h-64 rounded-lg bg-gradient-to-br from-[var(--color-beige)] to-[var(--color-beige-dark)] bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/articles/block-plane-shavings.jpg)" }}
-          role="img"
-          aria-label="Block plane smoothing the end grain of a wood board"
-        />
+        <Callout label="Common Beginner Mistake" tone="mistake">
+          <p>
+            Using a plane straight out of the box. Almost no plane, even a
+            good one, arrives sharp enough to perform well. Sharpening the
+            iron before first use is not optional, it's step one.
+          </p>
+        </Callout>
+
+        <SuggestedImage>
+          A close-up shot of a block plane mid-stroke across end grain, with
+          a curl of wood shaving visible.
+        </SuggestedImage>
+
+        <p>
+          <strong>Keeping it in shape:</strong> Learn a basic sharpening
+          method, sandpaper on glass works fine to start, and wipe a light
+          coat of oil on the sole and iron to prevent rust.
+        </p>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
           4. A Small Set of Bench Chisels
         </h2>
         <p>
-          Chisels handle tasks that other tools can&apos;t: cleaning out
-          joints, paring to a marked line, and trimming small amounts of
-          material with precision. A small set is more useful early on than
-          a large one, since most beginner projects rely on just a few
-          common widths.
+          Chisels do what nothing else can: clean, precise removal of small
+          amounts of wood, right where you need it.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          What to look for
-        </h3>
         <p>
-          A set of two to four chisels, commonly 1/4 inch, 1/2 inch, and
-          3/4 inch, covers most beginner joinery. Look for steel that holds
-          an edge reasonably well and handles that are comfortable to strike
-          with a mallet.
+          <strong>How they're used:</strong> Cleaning out joints, paring down
+          to a marked line, trimming small details a saw or plane can't
+          reach.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Realistic price and brands
-        </h3>
         <p>
-          Decent beginner chisel sets typically run $30 to $70 for three or
-          four pieces. Irwin and Stanley both offer widely available
-          beginner-friendly sets, while premium options from specialty
-          toolmakers can cost significantly more per chisel.
+          <strong>What makes a good set:</strong> Two to four chisels in
+          common widths, 1/4 inch, 1/2 inch, and 3/4 inch cover most early
+          projects. Steel that holds an edge, and a handle that's
+          comfortable under a mallet.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Common beginner mistakes
-        </h3>
         <p>
-          Using a chisel with a dull edge and compensating with extra force
-          is a common and avoidable habit. A dull chisel requires more
-          pressure to cut, which increases the chance of the tool slipping,
-          a concern echoed in general hand-tool safety guidance from
-          organizations like OSHA, which emphasizes keeping cutting tools
-          sharp and controlled rather than forcing a dull edge through
-          material.
+          <strong>Price range:</strong> $30 to $70 for a beginner-friendly
+          set of three or four. Irwin and Stanley both sell widely available
+          options in this range.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Maintenance
-        </h3>
+
+        <Callout label="Quick Checklist" tone="checklist">
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Chisel edge feels sharp, not dull, to a light touch test</li>
+            <li>Handle sits comfortably without sliding in your grip</li>
+            <li>Set includes at least a 1/4", 1/2", and 3/4" width</li>
+            <li>Comes with, or you've bought, a simple edge guard for storage</li>
+          </ul>
+        </Callout>
+
         <p>
-          Chisels need periodic honing, more often in dense hardwoods, and
-          benefit from a simple edge guard or roll for storage to protect
-          both the tool and your fingers when reaching into a drawer.
+          <strong>Safety note:</strong> A dull chisel is more dangerous than
+          a sharp one, not less. It takes more force to push through the
+          wood, which raises the odds of a slip. This lines up with general
+          hand-tool safety guidance from OSHA, which stresses keeping
+          cutting edges sharp and under control rather than forcing them.
+        </p>
+        <p>
+          <strong>Keeping them in shape:</strong> Expect to hone every few
+          hours of real use, sooner in hardwoods. Store them with an edge
+          guard so a reach into the drawer doesn't cost you a finger.
         </p>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
           5. A Hand Saw Suited to Your Projects
         </h2>
         <p>
-          A general-purpose hand saw, or a dedicated saw like a dovetail or
-          crosscut saw depending on your interests, lets you make accurate
-          cuts without the noise, dust, and setup time of a power saw,
-          especially useful for small parts or quick trims.
+          No motor, no cord, no dust cloud, just a clean, controlled cut
+          whenever you need one.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          What to look for
-        </h3>
         <p>
-          For general beginner use, a panel saw with a moderate tooth count,
-          around 8 to 10 points per inch, handles both rip and crosscuts
-          reasonably well. If your early projects lean toward fine joinery,
-          a smaller backsaw with finer teeth may be a better first choice.
+          <strong>How it's used:</strong> General crosscuts and rip cuts on
+          smaller stock, or fine joinery if you pick up a dedicated dovetail
+          saw down the line.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Realistic price and brands
-        </h3>
         <p>
-          Quality beginner hand saws range from about $25 to $60. Irwin
-          produces widely available panel and dovetail saws in this range,
-          and Stanley offers a range of hand saws found in most hardware
-          stores.
+          <strong>What makes a good one:</strong> For a first saw, look for a
+          panel saw around 8 to 10 points per inch, a good middle ground for
+          both rip and crosscuts.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Common beginner mistakes
-        </h3>
         <p>
-          Forcing the saw rather than letting its own weight and a
-          consistent stroke do the work is one of the most common early
-          habits to unlearn. Rushing a cut, or not starting it with a
-          shallow guide stroke, tends to produce wandering, uneven cuts.
+          <strong>Price range:</strong> $25 to $60. Irwin makes widely
+          available panel and dovetail saws in this range, and Stanley's saws
+          are in nearly every hardware store.
         </p>
-        <h3 className="font-serif text-lg font-bold text-[var(--color-charcoal)] pt-2">
-          Maintenance
-        </h3>
+
+        <Callout label="Common Beginner Mistake" tone="mistake">
+          <p>
+            Forcing the saw. Let the weight of the tool and a steady stroke
+            do the cutting. Starting with a shallow guide stroke, rather than
+            sawing at full force from the first pass, keeps the cut from
+            wandering.
+          </p>
+        </Callout>
+
         <p>
-          Keep the blade dry and lightly oiled to prevent rust, and store it
-          where the teeth aren&apos;t in contact with other tools. Sharpening
-          a hand saw is possible at home but takes practice, many beginners
-          opt to have saws professionally sharpened until they&apos;re
-          comfortable doing it themselves.
+          <strong>Keeping it in shape:</strong> Keep the blade dry and
+          lightly oiled, and store it away from contact with other tools.
+          Sharpening a saw by hand takes practice, many beginners send saws
+          out for professional sharpening until they're ready to learn.
         </p>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
-          Building Your Kit Gradually
+          Build the Kit Gradually
         </h2>
         <p>
-          It&apos;s worth resisting the temptation to buy every tool
-          mentioned here, plus a dozen more, in a single trip. Many
-          experienced woodworkers recommend buying a small number of good
-          tools and adding to that collection only when a specific project
-          calls for something you don&apos;t yet own. This approach keeps
-          costs manageable and helps you learn what you actually reach for
-          most, rather than guessing in advance.
+          Resist the urge to buy everything in one trip. Most experienced
+          woodworkers build their kit one tool at a time, adding something
+          new only when a project actually calls for it.
         </p>
         <p>
-          It&apos;s also worth noting that well-known power tool brands
-          like DeWalt, Makita, Milwaukee, and Bosch, along with clamp and
-          adhesive makers such as Bessey, Kreg, and Titebond, will likely
-          enter your shop eventually as your projects grow. None of that is
-          necessary on day one. These five hand tools are enough to
-          complete real, useful projects while you decide which direction
-          your woodworking interests take you.
+          Power tool brands like DeWalt, Makita, Milwaukee, and Bosch, along
+          with clamp and glue makers like Bessey, Kreg, and Titebond, will
+          probably find their way into your shop eventually. None of that is
+          needed on day one.
         </p>
         <p>
-          Above all, remember that skill comes from practice and patience,
-          not from the price tag on your tool roll. A beginner with a
-          modest set of well-maintained hand tools and a willingness to
-          learn from mistakes will progress faster than someone who owns an
-          expensive shop but rarely uses it.
+          These five tools are enough to build something real. What you do
+          with them matters far more than what's in your tool bag.
         </p>
 
         <div className="rounded-lg border border-[var(--color-beige-dark)] bg-[var(--color-beige)] p-5 text-sm text-[var(--color-charcoal-light)]">
@@ -450,28 +417,27 @@ export default function FirstFiveHandTools() {
         </div>
 
         <h2 className="font-serif text-2xl font-bold text-[var(--color-forest)] pt-4">
-          Continue Your Learning Journey
+          What's Next
         </h2>
         <p>
-          With these five hand tools in hand, you&apos;re equipped for more
-          than you might expect, but a good project is what turns tools into
-          skill. Next in our beginner series, we walk through{" "}
+          Tools are only half the story. The other half is putting them to
+          work. Once your kit is together, keep learning with{" "}
           <Link href="/articles/beginner-workbench-plans" className="underline text-[var(--color-forest)]">
             5 Beginner-Friendly Workbench Plans You Can Build This Weekend
           </Link>
-          , a natural next step now that you have the tools to measure,
-          mark, smooth, and cut with confidence.
+          , the natural next step now that you can measure, mark, smooth, and
+          cut with confidence.
         </p>
         <p>
-          You can also explore our{" "}
+          You can also browse our{" "}
           <Link href="/tools" className="underline text-[var(--color-forest)]">
             Woodworking Tools
           </Link>{" "}
-          section for deeper dives on specific tools, or browse{" "}
+          section for deeper dives on individual tools, or check our{" "}
           <Link href="/buying-guides" className="underline text-[var(--color-forest)]">
             Buying Guides
           </Link>{" "}
-          as you're ready to add power tools to your kit.
+          when you're ready to add your first power tool.
         </p>
       </div>
 
