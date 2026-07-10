@@ -18,4 +18,11 @@ just falls back to a plain color background — nothing breaks.
 - diy-picture-frame.jpg
 - cordless-drill-drivers-comparison.jpg
 
+## Flagship guide: "Woodworking for Beginners: The Complete 2026 Guide"
+
+- woodworking-for-beginners-hero.jpg — bright home workshop, hand tools laid out on a workbench
+- woodworking-hand-plane.jpg — close-up of hands using a hand plane on a wood board
+- woodworking-starter-tools.jpg — flat lay of basic beginner hand tools (square, chisels, saw, tape measure)
+- woodworking-first-projects.jpg — finished simple cutting board and small stool on a workbench
+
 Recommended size: at least 1200x800px, landscape orientation.

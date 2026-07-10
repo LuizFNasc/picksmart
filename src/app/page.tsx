@@ -1,10 +1,10 @@
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
 import Newsletter from "@/components/Newsletter";
-import { articles, categories, featuredReview } from "@/lib/data";
+import { articles, categories, featuredReview, flagshipArticle } from "@/lib/data";
 
 export default function Home() {
-  const featured = articles.find((a) => a.featured);
+  const featured = flagshipArticle;
   const latest = articles.slice(0, 6);
   const editorsChoice = articles.filter((a) => a.editorsChoice);
 
@@ -42,12 +42,11 @@ export default function Home() {
         <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
           <span className="section-label">Featured Story</span>
           <div className="mt-4 grid md:grid-cols-2 gap-8 items-center rounded-xl border border-[var(--color-beige-dark)] overflow-hidden bg-white">
-            <div className="h-64 md:h-full bg-gradient-to-br from-[var(--color-forest)] to-[var(--color-forest-dark)] flex items-center justify-center">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-beige)" strokeWidth="1.2">
-                <path d="M3 7l9-4 9 4-9 4-9-4z" strokeLinejoin="round" />
-                <path d="M3 7v10l9 4 9-4V7" strokeLinejoin="round" />
-              </svg>
-            </div>
+            <div
+              className="h-64 md:h-full bg-gradient-to-br from-[var(--color-forest)] to-[var(--color-forest-dark)] bg-cover bg-center"
+              style={{ backgroundImage: `url(${featured.image})` }}
+            />
+
             <div className="p-6 md:p-8">
               <p className="text-xs font-semibold text-[var(--color-wood-dark)] uppercase tracking-wide">
                 {featured.category}

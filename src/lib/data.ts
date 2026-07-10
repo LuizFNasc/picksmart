@@ -299,6 +299,15 @@ export const articles: Article[] = [
   },
 ];
 
+export const flagshipArticle = {
+  slug: "woodworking-for-beginners-guide",
+  title: "Woodworking for Beginners: The Complete 2026 Guide",
+  excerpt:
+    "Can you really learn woodworking with no experience? Yes. Our flagship guide covers cost, space, timelines, the 15 most common beginner mistakes, and the best first projects to start with.",
+  category: "Beginner Woodworking",
+  image: "/images/articles/woodworking-for-beginners-hero.jpg",
+};
+
 export const featuredReview = {
   title: "Cordless Drill Drivers: A Research-Based Comparison for DIYers",
   excerpt:
